@@ -1,6 +1,6 @@
 
 services:
-  application:
+  backend:
     build:
       context: app
       dockerfile: Dockerfile.prod
