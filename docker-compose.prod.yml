@@ -48,7 +48,7 @@ services:
       - media_volume:/app/media
       - certs:/etc/letsencrypt
     depends_on:
-      - application
+      - backend
       - frontend
 
   frontend:
