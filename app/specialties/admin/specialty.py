@@ -9,7 +9,7 @@ from specialties.models import Specialty
 
 
 @admin.register(Specialty)
-class Specialty(UnfoldModelAdmin):
+class SpecialtyAdmin(UnfoldModelAdmin):
     list_display = ('id', 'title', 'specialty', 'category', 'display_photo')
     list_display_links = ('id', 'title',)
     list_filter = ('category',)

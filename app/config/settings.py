@@ -55,7 +55,9 @@ else:
 # Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation',
     'unfold',
+    "unfold.contrib.forms",
     
     'django.contrib.admin',
     'django.contrib.auth',
@@ -73,6 +75,7 @@ INSTALLED_APPS = [
     'corsheaders',
 
     'specialties',
+    'news',
 ]
 
 MIDDLEWARE = [
@@ -81,6 +84,7 @@ MIDDLEWARE = [
 
     'corsheaders.middleware.CorsMiddleware',
     'djangorestframework_camel_case.middleware.CamelCaseMiddleWare',
+    'config.middleware.LanguageMiddleware',
 
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -173,6 +177,20 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_TRUSTED_ORIGINS = [f"https://{DOMAIN}", f"http://{DOMAIN}"]
 
+LANGUAGES = (
+    ('ru', 'Russian'),
+    ('en', 'English'),
+    ('ky', 'Kyrgyz'),
+)
+
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'ru'
+MODELTRANSLATION_LANGUAGES = ('ru', 'en', 'ky')
+MODELTRANSLATION_FALLBACK_LANGUAGES = {
+    'default': ('ru',),
+    'en': ('ru', 'ky'),  # Для английского fallback на русский и кыргызский
+    'ky': ('ru',),  # Для кыргызского fallback на русский
+}
+MODELTRANSLATION_AUTO_POPULATE = True
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = env('EMAIL_HOST_USER')
@@ -273,6 +291,15 @@ UNFOLD = {
             "important-dark": "var(--color-base-100)",  # text-base-100
         },
     },
+    "EXTENSIONS": {
+        "modeltranslation": {
+            "flags": {
+                "ru": "ru",
+                "en": "en",
+                "ky": "ky",
+            },
+        },
+    },
     "SIDEBAR": {
         "show_search": False,  # Search in applications and models names
         "show_all_applications": False,  # Dropdown with all applications and models
@@ -289,6 +316,21 @@ UNFOLD = {
                         "title": _("Категории специальности"),
                         "icon": "category",
                         "link": reverse_lazy("admin:specialties_specialtycategory_changelist"),
+                    },
+                ],
+            },
+            {
+                "title": _("Новости"),
+                "items": [
+                    {
+                        "title": _("Посты"),
+                        "icon": "post",
+                        "link": reverse_lazy("admin:news_post_changelist"),
+                    },
+                    {
+                        "title": _("Категории постов"),
+                        "icon": "category",
+                        "link": reverse_lazy("admin:news_postcategory_changelist"),
                     },
                 ],
             },
