@@ -6,7 +6,7 @@ from news.serializers import PostListSerializer, PostSerializer
 
 
 class PostViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset = Post.objects.filter(is_hidden=True)
+    queryset = Post.objects.filter(is_hidden=False)
     filter_backends = (DjangoFilterBackend,)
     filterset_fields = ('category',)
     lookup_field = 'slug'
