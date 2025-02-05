@@ -3,12 +3,12 @@ from drf_spectacular.utils import extend_schema
 from rest_framework import viewsets
 from rest_framework.filters import SearchFilter
 
-from ..models import Post
-from ..serializers import PostListSerializer, PostSerializer
+from ..models import Event
+from ..serializers import EventListSerializer, EventSerializer
 
 
-@extend_schema(tags=['Posts'])
-class PostViewSet(viewsets.ReadOnlyModelViewSet):
+@extend_schema(tags=['Events'])
+class EventViewSet(viewsets.ReadOnlyModelViewSet):
     filter_backends = (DjangoFilterBackend, SearchFilter)
     filterset_fields = ('category',)
     search_fields = ('title',)
@@ -16,9 +16,9 @@ class PostViewSet(viewsets.ReadOnlyModelViewSet):
 
     def get_serializer_class(self):
         if self.action == 'list':
-            return PostListSerializer
-        return PostSerializer
+            return EventListSerializer
+        return EventSerializer
 
     def get_queryset(self):
-        queryset = Post.objects.filter(is_hidden=False)
+        queryset = Event.objects.filter(is_hidden=False)
         return queryset

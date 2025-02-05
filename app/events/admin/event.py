@@ -2,17 +2,18 @@ from django.contrib import admin
 from django.db import models
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
+
 from modeltranslation.admin import TabbedTranslationAdmin
 
 from unfold.admin import ModelAdmin as UnfoldModelAdmin
 from unfold.contrib.forms.widgets import WysiwygWidget
 from unfold.decorators import display
 
-from news.models import Post
+from ..models import Event
 
 
-@admin.register(Post)
-class PostAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
+@admin.register(Event)
+class EventAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
     formfield_overrides = {
         models.TextField: {
             "widget": WysiwygWidget,

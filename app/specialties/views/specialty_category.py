@@ -5,7 +5,7 @@ from specialties.models import SpecialtyCategory
 from specialties.serializers import SpecialtyCategorySerializer
 
 
-@extend_schema(tags=['Specialties Category'])
+@extend_schema(tags=['Specialties'])
 class SpecialtyCategoryViewSet(viewsets.GenericViewSet,
                                mixins.ListModelMixin):
     queryset = SpecialtyCategory.objects.all()
