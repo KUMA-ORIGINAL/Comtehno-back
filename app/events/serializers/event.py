@@ -9,7 +9,7 @@ class EventBaseSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Event
-        fields = ('title', 'slug', 'photo', 'category', 'content', 'created_at', 'updated_at')
+        fields = ('title', 'slug', 'photo', 'place', 'category', 'content', 'created_at', 'updated_at')
 
 
 class EventSerializer(EventBaseSerializer):
@@ -19,4 +19,4 @@ class EventSerializer(EventBaseSerializer):
 class EventListSerializer(EventBaseSerializer):
 
     class Meta(EventBaseSerializer.Meta):
-        fields = ('title', 'slug', 'photo', 'category', 'created_at', 'updated_at')
+        fields = ('title', 'slug', 'photo', 'place', 'category', 'created_at', 'updated_at')

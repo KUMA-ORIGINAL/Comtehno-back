@@ -20,7 +20,7 @@ class EventAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
         }
     }
     compressed_fields = True
-    list_display = ('id', 'title', 'category', 'is_hidden', 'display_photo')
+    list_display = ('id', 'title', 'place', 'category', 'is_hidden', 'display_photo')
     list_display_links = ('id', 'title',)
     list_filter = ('category',)
     list_editable = ('is_hidden',)
