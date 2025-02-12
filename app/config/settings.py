@@ -318,6 +318,36 @@ UNFOLD = {
                         "icon": "category",
                         "link": reverse_lazy("admin:specialties_specialtycategory_changelist"),
                     },
+                    {
+                        "title": _("Программа обучения"),
+                        "icon": "import_contacts",
+                        "link": reverse_lazy("admin:specialties_trainingprogram_changelist"),
+                    },
+                    {
+                        "title": _("Программа обучения - Курсы"),
+                        "icon": "menu_book",
+                        "link": reverse_lazy("admin:specialties_course_changelist"),
+                    },
+                    {
+                        "title": _("Проекты студентов"),
+                        "icon": "developer_board",
+                        "link": reverse_lazy("admin:specialties_studentproject_changelist"),
+                    },
+                    {
+                        "title": _("Резюме"),
+                        "icon": "sensor_occupied",
+                        "link": reverse_lazy("admin:specialties_cv_changelist"),
+                    },
+                    {
+                        "title": _("Инструменты"),
+                        "icon": "home_repair_service",
+                        "link": reverse_lazy("admin:specialties_tool_changelist"),
+                    },
+                    {
+                        "title": _("Навыки"),
+                        "icon": "skateboarding",
+                        "link": reverse_lazy("admin:specialties_skill_changelist"),
+                    },
                 ],
             },
             {

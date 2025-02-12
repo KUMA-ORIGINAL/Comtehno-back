@@ -5,15 +5,14 @@ from django.utils.translation import gettext_lazy as _
 from unfold.admin import ModelAdmin as UnfoldModelAdmin
 from unfold.decorators import display
 
-from specialties.models import Specialty
+from ..models import StudentProject
 
 
-@admin.register(Specialty)
-class SpecialtyAdmin(UnfoldModelAdmin):
-    list_display = ('id', 'title', 'specialty', 'category', 'display_photo')
-    list_display_links = ('id', 'title',)
-    list_filter = ('category',)
-    prepopulated_fields = {'slug': ('title',)}
+@admin.register(StudentProject)
+class StudentProjectAdmin(UnfoldModelAdmin):
+    list_display = ('name', 'display_photo')
+    search_fields = ('name',)
+    list_filter = ('specialty',)
     readonly_fields = ('display_photo',)
 
     @display(description=_("Фото"))
