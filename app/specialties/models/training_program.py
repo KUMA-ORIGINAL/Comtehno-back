@@ -5,9 +5,6 @@ class TrainingProgram(models.Model):
     training_time = models.CharField(max_length=255, verbose_name='Время обучения')
     portfolio_projects = models.CharField(max_length=255, verbose_name='Количество работ')
 
-    specialty = models.ForeignKey('Specialty', on_delete=models.CASCADE,
-                                  verbose_name='Специальность', related_name='training_programs')
-
     class Meta:
         verbose_name = 'Программа обучения'
         verbose_name_plural = 'Программы обучения'

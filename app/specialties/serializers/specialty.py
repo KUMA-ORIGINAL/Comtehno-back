@@ -9,14 +9,14 @@ from .training_program import TrainingProgramSerializer
 
 class SpecialtyBaseSerializer(serializers.ModelSerializer):
     category = SpecialtyCategorySerializer()
-    training_programs = TrainingProgramSerializer()
+    training_program = TrainingProgramSerializer()
     student_projects = StudentProjectSerializer(many=True)
     cv = CVSerializer(many=True)
 
     class Meta:
         model = Specialty
         fields = ('id', 'title', 'slug', 'specialty', 'description', 'photo', 'category',
-                  'training_programs', 'student_projects', 'cv')
+                  'training_program', 'student_projects', 'cv')
 
 
 class SpecialtySerializer(SpecialtyBaseSerializer):

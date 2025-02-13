@@ -14,6 +14,11 @@ class Specialty(models.Model):
 
     category = models.ForeignKey('SpecialtyCategory', on_delete=models.CASCADE,
                                  related_name='specialty')
+    training_program = models.ForeignKey('TrainingProgram', on_delete=models.CASCADE,
+                                         related_name='specialty', blank=True, null=True)
+    student_projects = models.ManyToManyField('StudentProject', related_name='specialty')
+    cv = models.ForeignKey('CV', on_delete=models.CASCADE, related_name='specialty',
+                           blank=True, null=True)
 
     def __str__(self):
         return self.title

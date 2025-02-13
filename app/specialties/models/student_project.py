@@ -6,9 +6,6 @@ class StudentProject(models.Model):
     photo = models.FileField(upload_to='specialty/student_projects/%Y/%m/',
                              verbose_name='Фото проекта')
 
-    specialty = models.ForeignKey('Specialty', on_delete=models.CASCADE,
-                                  verbose_name='Специальность', related_name='student_projects')
-
     class Meta:
         verbose_name = 'Проект студентов'
         verbose_name_plural = 'Проекты студентов'
