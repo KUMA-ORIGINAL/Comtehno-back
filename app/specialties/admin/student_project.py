@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
+from modeltranslation.admin import TabbedTranslationAdmin
 
 from unfold.admin import ModelAdmin as UnfoldModelAdmin
 from unfold.decorators import display
@@ -9,7 +10,7 @@ from ..models import StudentProject
 
 
 @admin.register(StudentProject)
-class StudentProjectAdmin(UnfoldModelAdmin):
+class StudentProjectAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
     list_display = ('name', 'display_photo')
     search_fields = ('name',)
     list_filter = ('specialty',)

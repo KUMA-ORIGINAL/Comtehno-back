@@ -29,6 +29,7 @@ urlpatterns = [
     path('api/', include('specialties.urls')),
     path('api/', include('news.urls')),
     path('api/', include('events.urls')),
+    path('api/', include('staff.urls')),
 ]
 
 if settings.DEBUG:

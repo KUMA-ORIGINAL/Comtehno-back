@@ -77,6 +77,7 @@ INSTALLED_APPS = [
     'specialties',
     'news',
     'events',
+    'staff'
 ]
 
 MIDDLEWARE = [
@@ -377,6 +378,16 @@ UNFOLD = {
                         "title": _("Категории Мероприятия"),
                         "icon": "category",
                         "link": reverse_lazy("admin:events_eventcategory_changelist"),
+                    },
+                ],
+            },
+            {
+                "title": _("Персонал"),
+                "items": [
+                    {
+                        "title": _("Преподаватели"),
+                        "icon": "self_improvement",
+                        "link": reverse_lazy("admin:staff_staff_changelist"),
                     },
                 ],
             },

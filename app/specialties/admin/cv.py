@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 
+from modeltranslation.admin import TabbedTranslationAdmin
 from unfold.admin import ModelAdmin as UnfoldModelAdmin
 from unfold.decorators import display
 
@@ -9,7 +10,7 @@ from ..models import CV, Tool, Skill
 
 
 @admin.register(CV)
-class CVAdmin(UnfoldModelAdmin):
+class CVAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
     list_display = ('full_name', 'position', 'display_photo')
     search_fields = ('full_name',)
     list_filter = ('specialty',)
@@ -25,7 +26,7 @@ class CVAdmin(UnfoldModelAdmin):
 
 
 @admin.register(Tool)
-class ToolAdmin(UnfoldModelAdmin):
+class ToolAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
     list_display = ('name', 'display_photo')
     search_fields = ('name',)
     readonly_fields = ('display_photo',)
@@ -39,6 +40,6 @@ class ToolAdmin(UnfoldModelAdmin):
 
 
 @admin.register(Skill)
-class SkillAdmin(UnfoldModelAdmin):
+class SkillAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
     list_display = ('name',)
 

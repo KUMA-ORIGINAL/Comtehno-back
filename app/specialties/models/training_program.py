@@ -10,7 +10,7 @@ class TrainingProgram(models.Model):
         verbose_name_plural = 'Программы обучения'
 
     def __str__(self):
-        return f"Специальность - {self.specialty.title}"
+        return f"Специальность - {self.specialty}"
 
 
 class Course(models.Model):
