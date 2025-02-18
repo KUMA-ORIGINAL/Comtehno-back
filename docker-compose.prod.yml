@@ -60,6 +60,10 @@ services:
       - backend
     volumes:
       - static_volume:/frontend_static
+    deploy:
+      resources:
+        limits:
+          memory: 2g
 
 volumes:
   database-storage:
