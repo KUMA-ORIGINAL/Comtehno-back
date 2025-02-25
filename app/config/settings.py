@@ -77,7 +77,8 @@ INSTALLED_APPS = [
     'specialties',
     'news',
     'events',
-    'staff'
+    'staff',
+    'reviews'
 ]
 
 MIDDLEWARE = [
@@ -404,6 +405,21 @@ UNFOLD = {
                         "icon": "group",
                         "link": reverse_lazy("admin:auth_group_changelist"),
                         # "permission": "account.utils.permission_callback",
+                    },
+                ],
+            },
+            {
+                "title": _("Отзывы"),
+                "items": [
+                    {
+                        "title": _("Отзывы Студенты"),
+                        "icon": "person",
+                        "link": reverse_lazy("admin:reviews_studentreview_changelist"),
+                    },
+                    {
+                        "title": _("Категории"),
+                        "icon": "category",
+                        "link": reverse_lazy("admin:reviews_category_changelist"),
                     },
                 ],
             },
