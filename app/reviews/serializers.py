@@ -1,27 +1,38 @@
 from rest_framework import serializers
-from .models import Student, Category, Question_Answer, Review
+from .models import Category, StudentReview, QuestionAnswer
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = '__all__'  # Включаем все поля
-
-class StudentSerializer(serializers.ModelSerializer):
-    cat = CategorySerializer()  # Подключаем категорию (Направление)
-
-    class Meta:
-        model = Student
-        fields = '__all__'
+        fields = ['id', 'name']
 
 class QuestionAnswerSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Question_Answer
-        fields = '__all__'
+        model = QuestionAnswer
+        fields = ['question', 'answer']
 
-class ReviewSerializer(serializers.ModelSerializer):
-    student = StudentSerializer()  # Подключаем студента
-    question_answer = QuestionAnswerSerializer()  # Подключаем вопрос-ответ
+class StudentReviewListSerializer(serializers.ModelSerializer):
+    question_answers = QuestionAnswerSerializer(many=True)
 
     class Meta:
-        model = Review
-        fields = '__all__'
+        model = StudentReview
+        fields = ['id', 'student_photo', 'student_full_name', 'slug', 'student_course', 'student_category', 'question_answers', 'created_at', 'is_published']
+
+    def to_representation(self, instance):
+        # Получаем сериализованные данные
+        representation = super().to_representation(instance)
+        
+        # Ограничиваем количество вопрос-ответов до 3
+        representation['question_answers'] = representation['question_answers'][:3]
+        
+        return representation
+
+
+
+class StudentReviewDetailSerializer(serializers.ModelSerializer):
+    question_answers = QuestionAnswerSerializer(many=True)
+    class Meta:
+        model = StudentReview
+        fields = ['id', 'student_photo', 'student_full_name', 'slug', 'student_course', 'student_category',  'question_answers', 'created_at', 'is_published']
+
+

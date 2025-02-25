@@ -1,17 +1,23 @@
 from rest_framework import generics
-from .models import Student, Review
-from .serializers import StudentSerializer, ReviewSerializer
 from drf_spectacular.utils import extend_schema
+from .models import Category, StudentReview
+from .serializers import CategorySerializer, StudentReviewListSerializer, StudentReviewDetailSerializer
 
-# API для получения списка студентов
+# Получить список отзывов
 @extend_schema(tags=['Reviews'])
-class StudentListAPIView(generics.ListAPIView):
-    queryset = Student.objects.filter(is_published=True)  # Фильтруем только опубликованные
-    serializer_class = StudentSerializer
+class StudentReviewListView(generics.ListAPIView):
+    queryset = StudentReview.objects.all()
+    serializer_class = StudentReviewListSerializer
 
-# API для получения списка отзывов
+# Получить информацию об отзыве по slug
 @extend_schema(tags=['Reviews'])
-class ReviewListAPIView(generics.ListAPIView):
-    queryset = Review.objects.all()
-    serializer_class = ReviewSerializer
+class StudentReviewDetailView(generics.RetrieveAPIView):
+    queryset = StudentReview.objects.all()
+    serializer_class = StudentReviewDetailSerializer
+    lookup_field = 'slug'
 
+# Получить список категорий
+@extend_schema(tags=['Reviews'])
+class CategoryListView(generics.ListAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer

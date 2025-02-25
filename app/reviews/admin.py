@@ -1,32 +1,23 @@
 from django.contrib import admin
-from .models import Student, Category, Question_Answer, Review
+from unfold.admin import ModelAdmin, TabularInline
+from .models import Category, StudentReview, QuestionAnswer
 
-# Кастомизация админ-панели для модели Student
-@admin.register(Student)
-class StudentAdmin(admin.ModelAdmin):
-    list_display = ('full_name', 'course', 'cat', 'is_published', 'time_create', 'time_update')
-    list_filter = ('is_published', 'course', 'cat')
-    search_fields = ('full_name',)
-    ordering = ('full_name',)
 
-# Кастомизация админ-панели для модели Category
 @admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('name',)
+class CategoryAdmin(ModelAdmin):
+    list_display = ('id', 'name')
     search_fields = ('name',)
     ordering = ('name',)
 
-# Кастомизация админ-панели для модели Question_Answer
-@admin.register(Question_Answer)
-class QuestionAnswerAdmin(admin.ModelAdmin):
-    list_display = ('question', 'answer')
-    search_fields = ('question', 'answer')
-    ordering = ('question',)
+class QuestionAnswerInline(TabularInline):
+    model = QuestionAnswer
+    extra = 1
 
-# Кастомизация админ-панели для модели Review
-@admin.register(Review)
-class ReviewAdmin(admin.ModelAdmin):
-    list_display = ('student', 'question_answer', 'created_at')
-    list_filter = ('created_at',)
-    search_fields = ('student__full_name', 'question_answer__question')
+
+@admin.register(StudentReview)
+class StudentReviewAdmin(ModelAdmin):
+    list_display = ('id', 'student_full_name', 'student_course', 'student_category', 'created_at', 'is_published')
+    list_filter = ('is_published', 'student_category', 'created_at')
+    search_fields = ('student_full_name',)
     ordering = ('-created_at',)
+    inlines = [QuestionAnswerInline]

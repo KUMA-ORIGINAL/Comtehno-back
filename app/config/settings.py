@@ -412,24 +412,14 @@ UNFOLD = {
                 "title": _("Отзывы"),
                 "items": [
                     {
-                        "title": _("Студенты"),
+                        "title": _("Отзывы Студенты"),
                         "icon": "person",
-                        "link": reverse_lazy("admin:reviews_student_changelist"),
+                        "link": reverse_lazy("admin:reviews_studentreview_changelist"),
                     },
                     {
                         "title": _("Категории"),
                         "icon": "category",
                         "link": reverse_lazy("admin:reviews_category_changelist"),
-                    },
-                    {
-                        "title": _("Вопросы и ответы"),
-                        "icon": "question_answer",
-                        "link": reverse_lazy("admin:reviews_question_answer_changelist"),
-                    },
-                    {
-                        "title": _("Отзывы"),
-                        "icon": "rate_review",
-                        "link": reverse_lazy("admin:reviews_review_changelist"),
                     },
                 ],
             },
