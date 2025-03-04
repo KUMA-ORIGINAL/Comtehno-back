@@ -78,7 +78,8 @@ INSTALLED_APPS = [
     'news',
     'events',
     'staff',
-    'reviews'
+    'reviews',
+    'document_pages',
 ]
 
 MIDDLEWARE = [
@@ -393,6 +394,21 @@ UNFOLD = {
                 ],
             },
             {
+                "title": _("Документы"),
+                "items": [
+                    {
+                        "title": _("Документ страницы"),
+                        "icon": "description",
+                        "link": reverse_lazy("admin:document_pages_documentpage_changelist"),
+                    },
+                    {
+                        "title": _("Коллекции документов"),
+                        "icon": "collections",
+                        "link": reverse_lazy("admin:document_pages_documentcollection_changelist"),
+                    },
+                ],
+            },
+            {
                 "title": _("Пользователи & Группы"),
                 "items": [
                     {
@@ -405,21 +421,6 @@ UNFOLD = {
                         "icon": "group",
                         "link": reverse_lazy("admin:auth_group_changelist"),
                         # "permission": "account.utils.permission_callback",
-                    },
-                ],
-            },
-            {
-                "title": _("Отзывы"),
-                "items": [
-                    {
-                        "title": _("Отзывы Студенты"),
-                        "icon": "person",
-                        "link": reverse_lazy("admin:reviews_studentreview_changelist"),
-                    },
-                    {
-                        "title": _("Категории"),
-                        "icon": "category",
-                        "link": reverse_lazy("admin:reviews_category_changelist"),
                     },
                 ],
             },
