@@ -80,6 +80,7 @@ INSTALLED_APPS = [
     'staff',
     'reviews',
     'document_pages',
+    'projects',
 ]
 
 MIDDLEWARE = [
@@ -405,6 +406,16 @@ UNFOLD = {
                         "title": _("Коллекции документов"),
                         "icon": "collections",
                         "link": reverse_lazy("admin:document_pages_documentcollection_changelist"),
+                    },
+                ],
+            },
+            {
+                "title": _("Проекты и стартапы"),
+                "items": [
+                    {
+                        "title": _("Проекты"),
+                        "icon": "preview",
+                        "link": reverse_lazy("admin:projects_project_changelist"),
                     },
                 ],
             },
