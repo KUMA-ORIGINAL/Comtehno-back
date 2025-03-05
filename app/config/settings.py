@@ -263,7 +263,7 @@ CKEDITOR_CONFIGS = {
 UNFOLD = {
     "SITE_TITLE": 'Comtehno',
     "SITE_HEADER": "Comtehno",
-    "SITE_URL": "/",
+    "SITE_URL": "https://comtehno.kg/",
     "SITE_SYMBOL": "menu",  # symbol from icon set
     "SHOW_HISTORY": True, # show/hide "History" button, default: True
     "SHOW_VIEW_ON_SITE": True, # show/hide "View on site" button, default: True
@@ -314,11 +314,13 @@ UNFOLD = {
         },
     },
     "SIDEBAR": {
-        "show_search": False,  # Search in applications and models names
-        "show_all_applications": False,  # Dropdown with all applications and models
+        "show_search": True,  # Search in applications and models names
+        "show_all_applications": True,  # Dropdown with all applications and models
         "navigation": [
             {
                 "title": _("Специальности"),
+                "collapsible": True,
+                "separator": True,
                 "items": [
                     {
                         "title": _("Специальности"),
@@ -364,6 +366,8 @@ UNFOLD = {
             },
             {
                 "title": _("Отзывы"),
+                "collapsible": True,
+                "separator": True,
                 "items": [
                     {
                         "title": _("Отзывы Студенты"),
@@ -379,6 +383,8 @@ UNFOLD = {
             },
             {
                 "title": _("Новости"),
+                "collapsible": True,
+                "separator": True,
                 "items": [
                     {
                         "title": _("Посты"),
@@ -394,6 +400,8 @@ UNFOLD = {
             },
             {
                 "title": _("Мероприятия"),
+                "collapsible": True,
+                "separator": True,
                 "items": [
                     {
                         "title": _("Мероприятие"),
@@ -409,6 +417,8 @@ UNFOLD = {
             },
             {
                 "title": _("Персонал"),
+                "collapsible": True,
+                "separator": True,
                 "items": [
                     {
                         "title": _("Преподаватели"),
@@ -424,6 +434,8 @@ UNFOLD = {
             },
             {
                 "title": _("Документы"),
+                "collapsible": True,
+                "separator": True,
                 "items": [
                     {
                         "title": _("Документ страницы"),
@@ -439,6 +451,8 @@ UNFOLD = {
             },
             {
                 "title": _("Проекты и стартапы"),
+                "collapsible": True,
+                "separator": True,
                 "items": [
                     {
                         "title": _("Проекты"),
@@ -449,6 +463,8 @@ UNFOLD = {
             },
             {
                 "title": _("Пользователи & Группы"),
+                "collapsible": True,
+                "separator": True,
                 "items": [
                     {
                         "title": _("Пользователи"),
