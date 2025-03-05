@@ -37,4 +37,4 @@ class Skill(models.Model):
         verbose_name_plural = 'Навыки'
 
     def __str__(self):
-        return self.name[:30]
+        return self.name
