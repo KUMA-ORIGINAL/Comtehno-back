@@ -363,21 +363,6 @@ UNFOLD = {
                 ],
             },
             {
-                "title": _("Новости"),
-                "items": [
-                    {
-                        "title": _("Посты"),
-                        "icon": "post",
-                        "link": reverse_lazy("admin:news_post_changelist"),
-                    },
-                    {
-                        "title": _("Категории постов"),
-                        "icon": "category",
-                        "link": reverse_lazy("admin:news_postcategory_changelist"),
-                    },
-                ],
-            },
-            {
                 "title": _("Отзывы"),
                 "items": [
                     {
@@ -389,6 +374,21 @@ UNFOLD = {
                         "title": _("Категории"),
                         "icon": "category",
                         "link": reverse_lazy("admin:reviews_category_changelist"),
+                    },
+                ],
+            },
+            {
+                "title": _("Новости"),
+                "items": [
+                    {
+                        "title": _("Посты"),
+                        "icon": "post",
+                        "link": reverse_lazy("admin:news_post_changelist"),
+                    },
+                    {
+                        "title": _("Категории постов"),
+                        "icon": "category",
+                        "link": reverse_lazy("admin:news_postcategory_changelist"),
                     },
                 ],
             },
