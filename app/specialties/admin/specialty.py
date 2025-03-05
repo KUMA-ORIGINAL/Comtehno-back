@@ -16,6 +16,7 @@ class SpecialtyAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
     list_filter = ('category',)
     prepopulated_fields = {'slug': ('title',)}
     readonly_fields = ('display_photo',)
+    autocomplete_fields = ('student_projects',)
 
     @display(description=_("Фото"))
     def display_photo(self, obj):
