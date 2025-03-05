@@ -14,8 +14,6 @@ class Specialty(models.Model):
                              blank=True, verbose_name=_("Фото"))
     category = models.ForeignKey('SpecialtyCategory', on_delete=models.CASCADE,
                                  related_name='specialty', verbose_name=_("Категория"))
-    training_program = models.ForeignKey('TrainingProgram', on_delete=models.CASCADE,
-                                         related_name='specialty', blank=True, null=True, verbose_name=_("Программа обучения"))
     student_projects = models.ManyToManyField('StudentProject', related_name='specialty', verbose_name=_("Проекты студентов"))
     cv = models.ForeignKey('CV', on_delete=models.CASCADE, related_name='specialty',
                            blank=True, null=True, verbose_name=_("Резюме"))

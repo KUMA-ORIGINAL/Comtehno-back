@@ -4,13 +4,15 @@ from django.db import models
 class TrainingProgram(models.Model):
     training_time = models.CharField(max_length=255, verbose_name='Время обучения')
     portfolio_projects = models.CharField(max_length=255, verbose_name='Количество работ')
+    specialty = models.ForeignKey('Specialty', on_delete=models.CASCADE, null=True, blank=True,
+                                  related_name='training_program')
 
     class Meta:
         verbose_name = 'Программа обучения'
         verbose_name_plural = 'Программы обучения'
 
     def __str__(self):
-        return f"Специальность - {self.specialty}"
+        return f"{self.Meta.verbose_name}: Специальность - {self.specialty}"
 
 
 class Course(models.Model):
