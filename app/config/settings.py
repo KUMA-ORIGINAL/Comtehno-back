@@ -378,6 +378,21 @@ UNFOLD = {
                 ],
             },
             {
+                "title": _("Отзывы"),
+                "items": [
+                    {
+                        "title": _("Отзывы Студенты"),
+                        "icon": "person",
+                        "link": reverse_lazy("admin:reviews_studentreview_changelist"),
+                    },
+                    {
+                        "title": _("Категории"),
+                        "icon": "category",
+                        "link": reverse_lazy("admin:reviews_category_changelist"),
+                    },
+                ],
+            },
+            {
                 "title": _("Мероприятия"),
                 "items": [
                     {
