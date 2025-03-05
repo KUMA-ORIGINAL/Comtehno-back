@@ -14,6 +14,7 @@ class ModuleInline(TabularInline, TranslationTabularInline):
 @admin.register(Course)
 class CourseAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
     inlines = [ModuleInline]
+    list_filter = ('training_program',)
 
 
 class CourseInline(TabularInline, TranslationTabularInline):
@@ -24,3 +25,4 @@ class CourseInline(TabularInline, TranslationTabularInline):
 @admin.register(TrainingProgram)
 class TrainingProgramAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
     inlines = [CourseInline]
+    list_filter = ('specialty',)
