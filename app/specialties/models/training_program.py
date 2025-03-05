@@ -12,7 +12,7 @@ class TrainingProgram(models.Model):
         verbose_name_plural = 'Программы обучения'
 
     def __str__(self):
-        return f"{self.Meta.verbose_name}: Специальность - {self.specialty}"
+        return f"Специальность - {self.specialty}"
 
 
 class Course(models.Model):
