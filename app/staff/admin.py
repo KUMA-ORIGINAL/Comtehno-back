@@ -6,7 +6,7 @@ from modeltranslation.admin import TabbedTranslationAdmin, TranslationTabularInl
 from unfold.admin import ModelAdmin as UnfoldModelAdmin, TabularInline
 from unfold.decorators import display
 
-from .models import Staff, StaffAchievement
+from .models import Staff, StaffAchievement, StaffDepartment
 
 
 class StaffAchievementInline(TabularInline, TranslationTabularInline):
@@ -16,7 +16,7 @@ class StaffAchievementInline(TabularInline, TranslationTabularInline):
 
 @admin.register(Staff)
 class StaffAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
-    list_display = ('full_name', 'specialization', 'display_photo')
+    list_display = ('full_name', 'specialization', 'department', 'display_photo')
     search_fields = ('full_name',)
     readonly_fields = ('display_photo',)
     inlines = [StaffAchievementInline]
@@ -27,3 +27,9 @@ class StaffAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
             return mark_safe(
                 f'<img src="{obj.photo.url}" width="100" '
                 f'style="border-radius: 10px;" />')
+
+
+@admin.register(StaffDepartment)
+class StaffDepartmentAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
+    list_display = ('name',)
+    search_fields = ('name',)

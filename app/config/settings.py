@@ -400,6 +400,11 @@ UNFOLD = {
                         "icon": "self_improvement",
                         "link": reverse_lazy("admin:staff_staff_changelist"),
                     },
+                    {
+                        "title": _("Отделения"),
+                        "icon": "account_balance",
+                        "link": reverse_lazy("admin:staff_staffdepartment_changelist"),
+                    },
                 ],
             },
             {
