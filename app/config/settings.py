@@ -73,6 +73,7 @@ INSTALLED_APPS = [
     'django_filters',
     'djoser',
     'corsheaders',
+    'ckeditor',
 
     'specialties',
     'news',
@@ -250,6 +251,13 @@ DJOSER = {
     #     'user': 'account.serializers.UserSerializer',
     #     'current_user': 'account.serializers.UserSerializer',
     # },
+}
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+    },
 }
 
 UNFOLD = {
