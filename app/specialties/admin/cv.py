@@ -16,6 +16,7 @@ class CVAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
     list_filter = ('specialty',)
     filter_horizontal = ('tools', 'skills')
     readonly_fields = ('display_photo',)
+    autocomplete_fields = ('skills', 'tools')
 
     @display(description=_("Фото"))
     def display_photo(self, obj):
@@ -42,4 +43,4 @@ class ToolAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
 @admin.register(Skill)
 class SkillAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
     list_display = ('name',)
-
+    search_fields = ('name',)

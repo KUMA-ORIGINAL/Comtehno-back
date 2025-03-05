@@ -1,15 +1,15 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
-from modeltranslation.admin import TabbedTranslationAdmin, TranslationTabularInline
+from modeltranslation.admin import TabbedTranslationAdmin, TranslationStackedInline
 
-from unfold.admin import ModelAdmin as UnfoldModelAdmin, TabularInline
+from unfold.admin import ModelAdmin as UnfoldModelAdmin, StackedInline
 from unfold.decorators import display
 
 from .models import Staff, StaffAchievement, StaffDepartment
 
 
-class StaffAchievementInline(TabularInline, TranslationTabularInline):
+class StaffAchievementInline(StackedInline, TranslationStackedInline):
     model = StaffAchievement
     extra = 1
 
