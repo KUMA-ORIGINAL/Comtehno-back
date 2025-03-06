@@ -11,7 +11,7 @@ class SpecialtyBaseSerializer(serializers.ModelSerializer):
     category = SpecialtyCategorySerializer(read_only=True)
     training_program = TrainingProgramSerializer(read_only=True)
     student_projects = StudentProjectSerializer(many=True, read_only=True)
-    cv = CVSerializer(many=True, read_only=True)
+    cv = CVSerializer(read_only=True)
 
     class Meta:
         model = Specialty
