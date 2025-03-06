@@ -9,7 +9,7 @@ from .training_program import TrainingProgramSerializer
 
 class SpecialtyBaseSerializer(serializers.ModelSerializer):
     category = SpecialtyCategorySerializer(read_only=True)
-    training_program = TrainingProgramSerializer(many=True, read_only=True)
+    training_program = TrainingProgramSerializer(read_only=True)
     student_projects = StudentProjectSerializer(many=True, read_only=True)
     cv = CVSerializer(many=True, read_only=True)
 
