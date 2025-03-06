@@ -4,8 +4,8 @@ from django.db import models
 class TrainingProgram(models.Model):
     training_time = models.CharField(max_length=255, verbose_name='Время обучения')
     portfolio_projects = models.CharField(max_length=255, verbose_name='Количество работ')
-    specialty = models.ForeignKey('Specialty', on_delete=models.CASCADE, null=True, blank=True,
-                                  related_name='training_program')
+    specialty = models.OneToOneField('Specialty', on_delete=models.CASCADE, null=True, blank=True,
+                                     related_name='training_program')
 
     class Meta:
         verbose_name = 'Программа обучения'
