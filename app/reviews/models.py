@@ -13,7 +13,7 @@ class Category(models.Model):
 
 class StudentReview(models.Model):
     """
-    Объединенная модель, содержащая информацию о студенте, вопросах и ответах, а также отзывах
+    Объединенная модель, содержащая информацию о студенте
     """
     # Поля, связанные со студентом
     student_photo = models.ImageField(upload_to='reviews/photos/%Y/%m/%d/', verbose_name='Фото студента', null=True, blank=True)
@@ -21,7 +21,13 @@ class StudentReview(models.Model):
     slug = models.SlugField(max_length=100, unique=True, verbose_name='Slug', blank=True)
     student_course = models.IntegerField(verbose_name='Курс')
     student_category = models.ForeignKey(Category, on_delete=models.PROTECT, verbose_name='Направление')
-
+    
+    student_status = models.CharField(
+        max_length=10,
+        choices=[('student', 'Студент'), ('graduate', 'Выпускник')],
+        default='student',
+        verbose_name='Статус студента или выпускника' 
+    )
     
 
     # Поля, связанные с отзывами

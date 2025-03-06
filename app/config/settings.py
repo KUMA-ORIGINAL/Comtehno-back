@@ -78,7 +78,8 @@ INSTALLED_APPS = [
     'news',
     'events',
     'staff',
-    'reviews'
+    'reviews',
+    'faq',
 ]
 
 MIDDLEWARE = [
@@ -420,6 +421,16 @@ UNFOLD = {
                         "title": _("Категории"),
                         "icon": "category",
                         "link": reverse_lazy("admin:reviews_category_changelist"),
+                    },
+                ],
+            },
+            {
+                "title": _("Частые Вопросы"),
+                "items": [
+                    {
+                        "title": _("Вопрос Ответ"),
+                        "icon": "question_answer",
+                        "link": reverse_lazy("admin:faq_faqitem_changelist"),
                     },
                 ],
             },
