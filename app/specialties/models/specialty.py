@@ -2,7 +2,6 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 
-
 class Specialty(models.Model):
     title = models.CharField(max_length=255, verbose_name=_("Название"))
     slug = models.SlugField(unique=True, verbose_name=_("Слаг"))

@@ -217,9 +217,9 @@ SPECTACULAR_SETTINGS = {
 }
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ),
+    # 'DEFAULT_AUTHENTICATION_CLASSES': (
+    #     'rest_framework_simplejwt.authentication.JWTAuthentication',
+    # ),
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
     'DEFAULT_RENDERER_CLASSES': (
         'djangorestframework_camel_case.render.CamelCaseJSONRenderer',
@@ -412,6 +412,11 @@ UNFOLD = {
                         "title": _("Категории Мероприятия"),
                         "icon": "category",
                         "link": reverse_lazy("admin:events_eventcategory_changelist"),
+                    },
+                    {
+                        "title": _("Команды"),
+                        "icon": "groups",
+                        "link": reverse_lazy("admin:events_team_changelist"),
                     },
                 ],
             },
