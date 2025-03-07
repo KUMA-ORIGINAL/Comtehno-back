@@ -82,6 +82,7 @@ INSTALLED_APPS = [
     'reviews',
     'document_pages',
     'projects',
+    'applicants'
 ]
 
 MIDDLEWARE = [
@@ -463,6 +464,18 @@ UNFOLD = {
                         "title": _("Проекты"),
                         "icon": "preview",
                         "link": reverse_lazy("admin:projects_project_changelist"),
+                    },
+                ],
+            },
+            {
+                "title": _("Страница абитуриентам"),
+                "collapsible": True,
+                "separator": True,
+                "items": [
+                    {
+                        "title": _("Страница абитуриентам"),
+                        "icon": "preview",
+                        "link": reverse_lazy("admin:applicants_applicantpage_changelist"),
                     },
                 ],
             },
