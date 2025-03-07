@@ -1,13 +1,13 @@
 from django.contrib import admin
 
-from unfold.admin import ModelAdmin as UnfoldModelAdmin, TabularInline
-from modeltranslation.admin import TabbedTranslationAdmin, TranslationTabularInline
+from unfold.admin import ModelAdmin as UnfoldModelAdmin, StackedInline
+from modeltranslation.admin import TabbedTranslationAdmin, TranslationStackedInline
 
 
 from ..models import DocumentCollection, DocumentCollectionItem
 
 
-class DocumentCollectionItemInline(TabularInline, TranslationTabularInline):
+class DocumentCollectionItemInline(StackedInline, TranslationStackedInline):
     model = DocumentCollectionItem
     extra = 1
 
