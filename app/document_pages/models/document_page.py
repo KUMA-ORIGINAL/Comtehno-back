@@ -14,6 +14,7 @@ class DocumentPage(models.Model):
     class Meta:
         verbose_name = "Страница документов"
         verbose_name_plural = "Страницы документов"
+        ordering = ('order',)
 
     def __str__(self):
         return self.title
