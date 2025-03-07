@@ -9,6 +9,7 @@ class DocumentPage(models.Model):
     content = models.TextField(verbose_name='Контент')
     document_collections = models.ManyToManyField('DocumentCollection',
                                                   verbose_name='Коллекции документов')
+    order = models.PositiveIntegerField(default=0, verbose_name="Порядок")
 
     class Meta:
         verbose_name = "Страница документов"

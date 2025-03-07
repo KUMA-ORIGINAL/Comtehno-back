@@ -18,7 +18,8 @@ class DocumentPageAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
             "widget": CKEditorWidget,
         }
     }
-    list_display = ('title', 'subtitle', 'display_photo')
+    list_display = ('title', 'subtitle', 'order', 'display_photo')
+    list_editable = ('order',)
     prepopulated_fields = {"slug": ("title",)}
     filter_horizontal = ('document_collections',)
 
