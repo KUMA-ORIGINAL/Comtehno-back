@@ -24,7 +24,8 @@ class PostAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
     list_filter = ('category',)
     list_editable = ('is_hidden',)
     prepopulated_fields = {'slug': ('title',)}
-    readonly_fields = ('created_at', 'updated_at', 'display_photo')
+    readonly_fields = ('updated_at', 'display_photo')
+    date_hierarchy = 'created_at'
 
     @display(description=_("Фото"))
     def display_photo(self, obj):
