@@ -12,7 +12,7 @@ class StaffAchievementSerializer(serializers.ModelSerializer):
 class StaffDepartmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = StaffDepartment
-        fields = ['name']
+        fields = ['id', 'name']
 
 
 class StaffSerializer(serializers.ModelSerializer):

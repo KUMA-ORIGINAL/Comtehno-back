@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 class Post(models.Model):
@@ -11,7 +12,7 @@ class Post(models.Model):
                                  related_name='posts', verbose_name='Категория')
     is_hidden = models.BooleanField(default=False, verbose_name='Скрыт?')
 
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
+    created_at = models.DateTimeField(default=timezone.now, verbose_name="Дата создания")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Дата изменения")
 
     class Meta:
