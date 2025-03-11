@@ -7,7 +7,9 @@ class DocumentPage(models.Model):
     subtitle = models.CharField(max_length=255, verbose_name='Под заголовок')
     photo = models.FileField(verbose_name="Фото", upload_to="document_pages/photos/%Y/%m/")
     content = models.TextField(verbose_name='Контент')
-    document_collections = models.ManyToManyField('DocumentCollection',
+    parent_page = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True,
+                                    related_name='child_pages', verbose_name='Родительская страница')
+    document_collections = models.ManyToManyField('DocumentCollection', blank=True,
                                                   verbose_name='Коллекции документов')
     order = models.PositiveIntegerField(default=0, verbose_name="Порядок")
 
