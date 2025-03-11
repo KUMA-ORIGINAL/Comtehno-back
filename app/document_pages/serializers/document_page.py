@@ -25,4 +25,4 @@ class DocumentPageSerializer(DocumentPageBaseSerializer):
 class DocumentPageListSerializer(DocumentPageBaseSerializer):
 
     class Meta(DocumentPageBaseSerializer.Meta):
-        fields = ('title', 'slug', 'subtitle', 'photo',)
+        fields = ('id', 'title', 'slug', 'subtitle', 'photo',)
