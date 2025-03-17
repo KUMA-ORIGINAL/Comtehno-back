@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
-from modeltranslation.admin import TabbedTranslationAdmin
+from modeltranslation.admin import TabbedTranslationAdmin, TranslationStackedInline
 
 from unfold.admin import ModelAdmin as UnfoldModelAdmin, StackedInline
 from unfold.decorators import display
@@ -9,7 +9,7 @@ from unfold.decorators import display
 from ..models import PartnerDocument, PartnerDocumentItem
 
 
-class PartnerDocumentItemInline(StackedInline):
+class PartnerDocumentItemInline(StackedInline, TranslationStackedInline):
     model = PartnerDocumentItem
     extra = 1
 
