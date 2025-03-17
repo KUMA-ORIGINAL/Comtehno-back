@@ -82,7 +82,8 @@ INSTALLED_APPS = [
     'reviews',
     'document_pages',
     'projects',
-    'applicants'
+    'applicants',
+    'partners',
 ]
 
 MIDDLEWARE = [
@@ -452,6 +453,23 @@ UNFOLD = {
                         "title": _("Коллекции документов"),
                         "icon": "collections",
                         "link": reverse_lazy("admin:document_pages_documentcollection_changelist"),
+                    },
+                ],
+            },
+            {
+                "title": _("Партнеры"),
+                "collapsible": True,
+                "separator": True,
+                "items": [
+                    {
+                        "title": _("Партнеры"),
+                        "icon": "partner_exchange",
+                        "link": reverse_lazy("admin:partners_partner_changelist"),
+                    },
+                    {
+                        "title": _("Коллекции документов"),
+                        "icon": "collections",
+                        "link": reverse_lazy("admin:partners_partnerdocument_changelist"),
                     },
                 ],
             },
