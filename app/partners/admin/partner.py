@@ -11,8 +11,9 @@ from ..models import Partner
 
 @admin.register(Partner)
 class PartnerAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
-    list_display = ('id', 'name', 'display_icon')
+    list_display = ('id', 'name', 'is_hidden', 'display_icon')
     list_display_links = ('id', 'name',)
+    list_editable = ('is_hidden',)
 
     @display(description=_("Фото"))
     def display_icon(self, obj):
