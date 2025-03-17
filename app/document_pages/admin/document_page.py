@@ -21,7 +21,7 @@ class DocumentPageAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
     list_display = ('title', 'subtitle', 'parent_page', 'order', 'display_photo')
     list_editable = ('order',)
     prepopulated_fields = {"slug": ("title",)}
-    filter_horizontal = ('document_collections',)
+    autocomplete_fields = ('document_collections',)
 
     @display(description=_("Фото"))
     def display_photo(self, obj):
