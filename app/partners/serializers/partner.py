@@ -7,4 +7,4 @@ class PartnerSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Partner
-        fields = ('id', 'name', 'icon')
+        fields = ('id', 'name', 'link', 'icon')
