@@ -19,7 +19,7 @@ class PartnerDocumentAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
     compressed_fields = True
     list_display = ('id', 'title', 'is_hidden', 'order', 'display_photo')
     list_display_links = ('id', 'title',)
-    list_editable = ('is_hidden',)
+    list_editable = ('is_hidden', 'order')
     search_fields = ('title',)
     list_filter = ('is_hidden',)
     inlines = (PartnerDocumentItemInline,)
