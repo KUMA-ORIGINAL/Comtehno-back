@@ -15,4 +15,5 @@ class DocumentCollectionItemInline(StackedInline, TranslationStackedInline):
 @admin.register(DocumentCollection)
 class DocumentCollectionAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
     list_display = ('name',)
+    search_fields = ('name',)
     inlines = (DocumentCollectionItemInline,)
