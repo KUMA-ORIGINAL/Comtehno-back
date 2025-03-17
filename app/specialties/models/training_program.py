@@ -21,12 +21,10 @@ class Course(models.Model):
                                          on_delete=models.CASCADE,
                                          related_name="courses",
                                          verbose_name='Программа обучения')
-    order = models.PositiveIntegerField(default=0, verbose_name="Порядок")
 
     class Meta:
         verbose_name = 'Курс - Программа обучения'
         verbose_name_plural = 'Курс - Программы обучения'
-        ordering = ('order',)
 
     def __str__(self):
         return f'{self.name} - {self.training_program}'
