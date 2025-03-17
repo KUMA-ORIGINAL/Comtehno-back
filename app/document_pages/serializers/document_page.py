@@ -10,7 +10,7 @@ class DocumentPageBaseSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = DocumentPage
-        fields = ('title', 'slug', 'subtitle', 'photo', 'content', 'child_pages','document_collections')
+        fields = ('id', 'title', 'slug', 'subtitle', 'photo', 'content', 'child_pages','document_collections')
 
     def get_child_pages(self, instance):
         request = self.context.get('request')
