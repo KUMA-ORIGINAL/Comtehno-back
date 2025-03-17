@@ -13,6 +13,7 @@ from ..models import Partner
 class PartnerAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
     list_display = ('id', 'name', 'is_hidden', 'display_icon')
     list_display_links = ('id', 'name',)
+    search_fields = ('name',)
     list_editable = ('is_hidden',)
 
     @display(description=_("Фото"))

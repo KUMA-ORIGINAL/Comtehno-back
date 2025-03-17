@@ -17,9 +17,11 @@ class PartnerDocumentItemInline(StackedInline, TranslationStackedInline):
 @admin.register(PartnerDocument)
 class PartnerDocumentAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
     compressed_fields = True
-    list_display = ('id', 'title', 'is_hidden', 'display_photo')
+    list_display = ('id', 'title', 'is_hidden', 'order', 'display_photo')
     list_display_links = ('id', 'title',)
     list_editable = ('is_hidden',)
+    search_fields = ('title',)
+    list_filter = ('is_hidden',)
     inlines = (PartnerDocumentItemInline,)
 
     @display(description=_("Фото"))
