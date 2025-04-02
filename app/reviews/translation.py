@@ -1,11 +1,15 @@
-from modeltranslation.translator import TranslationOptions, register
-from .models import Category, QuestionAnswer,StudentReview
+# from modeltranslation.translator import TranslationOptions, register
+# from .models import QuestionAnswer, StudentReview, Category
 
-@register(Category)
-class CategoryTranslationOptions(TranslationOptions):
-    fields = ('name',)
+# @register(Category)
+# class CategoryTranslationOptions(TranslationOptions):
+#     fields = ('name',)
 
-@register(StudentReview)
-class StudentReviewTranslationOptions(TranslationOptions):
-    fields = ('student_full_name', 'student_course',
-              'student_status', 'student_category')
+# @register(QuestionAnswer)
+# class QuestionAnswerTranslationOptions(TranslationOptions):
+#     fields = ('question', 'answer')
+
+# @register(StudentReview)
+# class StudentReviewTranslationOptions(TranslationOptions):
+#     fields = ('student_full_name',
+#               'student_status')
