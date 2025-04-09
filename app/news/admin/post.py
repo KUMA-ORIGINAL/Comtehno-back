@@ -31,5 +31,4 @@ class PostAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
     def display_photo(self, obj):
         if obj.photo:
             return mark_safe(
-                f'<img src="{obj.photo.url}" width="100" '
-                f'style="border-radius: 10px;" />')
+                f'<img src="{obj.photo.url}" style="border-radius: 10px; width: 170px; height: auto;" />')
