@@ -11,7 +11,7 @@ from specialties.models import Specialty
 
 @admin.register(Specialty)
 class SpecialtyAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
-    list_display = ('id', 'title', 'specialty', 'category', 'display_photo')
+    list_display = ('id', 'title', 'specialty', 'category', 'is_popular', 'display_photo')
     list_display_links = ('id', 'title',)
     list_filter = ('category',)
     prepopulated_fields = {'slug': ('title',)}

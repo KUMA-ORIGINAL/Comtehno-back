@@ -15,7 +15,7 @@ class SpecialtyBaseSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Specialty
-        fields = ('id', 'title', 'slug', 'specialty', 'description', 'photo', 'category',
+        fields = ('id', 'title', 'slug', 'specialty', 'description', 'photo', 'category', 'is_popular',
                   'training_program', 'student_projects', 'cv')
 
 
@@ -26,4 +26,4 @@ class SpecialtySerializer(SpecialtyBaseSerializer):
 class SpecialtyListSerializer(SpecialtyBaseSerializer):
 
     class Meta(SpecialtyBaseSerializer.Meta):
-        fields = ('id', 'title', 'slug', 'specialty', 'preview_photo', 'category')
+        fields = ('id', 'title', 'slug', 'specialty', 'preview_photo', 'category', 'is_popular')

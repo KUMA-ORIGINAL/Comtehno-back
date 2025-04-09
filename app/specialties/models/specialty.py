@@ -16,6 +16,7 @@ class Specialty(models.Model):
     student_projects = models.ManyToManyField('StudentProject', related_name='specialty', verbose_name=_("Проекты студентов"))
     cv = models.ForeignKey('CV', on_delete=models.CASCADE, related_name='specialty',
                            blank=True, null=True, verbose_name=_("Резюме"))
+    is_popular = models.BooleanField('Популярное', default=False)
 
     class Meta:
         verbose_name = _("Специальность")
