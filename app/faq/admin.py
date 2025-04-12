@@ -1,19 +1,45 @@
 from django.contrib import admin
-from .models import FAQ, FAQItem
-from unfold.admin import ModelAdmin, TabularInline
+from django.db import models
+from django.utils.safestring import mark_safe
+from django.utils.translation import gettext_lazy as _
+from modeltranslation.admin import TabbedTranslationAdmin
 
-class FAQItemInline(TabularInline):  # Встраиваем FAQItem в FAQ
-    model = FAQItem
-    extra = 1  # Количество пустых форм для добавления новых FAQItem
+from unfold.admin import ModelAdmin as UnfoldModelAdmin
+from unfold.contrib.forms.widgets import WysiwygWidget
+from unfold.decorators import display
+
+from .models import FAQItem, FAQ
 
 @admin.register(FAQ)
-class FAQAdmin(ModelAdmin):  # исправлено на admin.ModelAdmin
-    list_display = ('name',)  # Поля, которые будут отображаться в списке FAQ
-    search_fields = ('name',)  # Возможность искать по вопросу
-    inlines = [FAQItemInline]  # Вставляем FAQItem как инлайн
+class FAQAdmin(UnfoldModelAdmin):
+    """
+    Админка для FAQ
+    """
+    
+    formfield_overrides = {
+        models.TextField: {
+            "widget": WysiwygWidget,
+        }
+    }
+    
+    list_display = ('id', 'name')
+    search_fields = ('name', )
+    ordering = ('name', )
+
 
 @admin.register(FAQItem)
-class FAQItemAdmin(ModelAdmin):  # исправлено на admin.ModelAdmin
-    list_display = ('question', 'answer')  # Поля, которые будут отображаться в списке FAQItem
-    search_fields = ('answer',)  # Возможность искать по ответу
-
+class FAQItemAdmin(UnfoldModelAdmin):
+    """
+    Админка для FAQ
+    """
+    
+    formfield_overrides = {
+        models.TextField: {
+            "widget": WysiwygWidget,
+        }
+    }
+    
+    list_display = ('id', 'location', 'question', 'answer') 
+    search_fields = ('location', )
+    ordering = ('location', )
+    autocomplete_fields = ('location', )

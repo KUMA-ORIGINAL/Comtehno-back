@@ -428,10 +428,16 @@ UNFOLD = {
                 "title": _("Частые Вопросы"),
                 "items": [
                     {
-                        "title": _("Вопрос Ответ"),
-                        "icon": "question_answer",
-                        "link": reverse_lazy("admin:faq_faqitem_changelist"),
+                        "title": _("Место"),
+                        "icon": "place",
+                        "link": reverse_lazy("admin:faq_faq_changelist"),
                     },
+                    
+                    {
+                        "title": _("Вопрос"),
+                        "icon": "question_mark",
+                        "link": reverse_lazy("admin:faq_faqitem_changelist"),
+                    }
                 ],
             },
         ],
