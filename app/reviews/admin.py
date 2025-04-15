@@ -11,46 +11,8 @@ from unfold.decorators import display
 
 from .models import Category, StudentReview
 
-# @admin.register(Category)
-# class CategoryAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
-    
-#     formfield_overrides = {
-#         models.TextField: {
-#             "widget": WysiwygWidget,
-#         }
-#     }
-    
-#     list_display = ('id', 'name') 
-#     search_fields = ('name',)
-    
-# @admin.register(StudentReview)
-# class StudentReviewAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
-    
-#     formfield_overrides = {
-#         models.TextField: {
-#             "widget": WysiwygWidget,
-#         }
-#     }
-        
-#     list_display = ('id', 'student_full_name', 'student_course', 'student_category') 
-#     search_fields = ('student_full_name',)
-#     ordering = ('student_category', 'student_course') # Поля для сортировки
-
 @admin.register(Category)
-class CategoryAdmin(UnfoldModelAdmin):
-    """
-    Админка для направления
-    """
-    
-    list_display = ('id', 'name') 
-    search_fields = ('name',)        
-
-
-@admin.register(StudentReview)
-class StudentReviewAdmin(UnfoldModelAdmin):
-    """
-    Админка для отзывов студентов
-    """
+class CategoryAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
     
     formfield_overrides = {
         models.TextField: {
@@ -58,6 +20,46 @@ class StudentReviewAdmin(UnfoldModelAdmin):
         }
     }
     
+    list_display = ('id', 'name') 
+    search_fields = ('name',)
+    
+@admin.register(StudentReview)
+class StudentReviewAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
+    
+    formfield_overrides = {
+        models.TextField: {
+            "widget": WysiwygWidget,
+        }
+    }
+        
     list_display = ('id', 'student_full_name', 'student_course', 'student_category') 
     search_fields = ('student_full_name',)
-    ordering = ('student_category', 'student_course')    
+    ordering = ('student_category', 'student_course') # Поля для сортировки
+
+# # #
+# @admin.register(Category)
+# class CategoryAdmin(UnfoldModelAdmin):
+#     """
+#     Админка для направления
+#     """
+    
+#     list_display = ('id', 'name') 
+#     search_fields = ('name',)        
+
+
+# @admin.register(StudentReview)
+# class StudentReviewAdmin(UnfoldModelAdmin):
+#     """
+#     Админка для отзывов студентов
+#     """
+    
+#     formfield_overrides = {
+#         models.TextField: {
+#             "widget": WysiwygWidget,
+#         }
+#     }
+    
+#     list_display = ('id', 'student_full_name', 'student_course', 'student_category') 
+#     search_fields = ('student_full_name',)
+#     ordering = ('student_category', 'student_course')    
+    
