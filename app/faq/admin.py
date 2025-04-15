@@ -28,9 +28,9 @@ class FAQAdmin(UnfoldModelAdmin):
 
 
 @admin.register(FAQItem)
-class FAQItemAdmin(UnfoldModelAdmin):
+class FAQItemAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
     """
-    Админка для FAQ
+    Админка для FAQItem
     """
     
     formfield_overrides = {
