@@ -447,13 +447,18 @@ UNFOLD = {
                 "items": [
                     {
                         "title": _("Документ страницы"),
-                        "icon": "description",
+                        "icon": "wysiwyg",
                         "link": reverse_lazy("admin:document_pages_documentpage_changelist"),
                     },
                     {
                         "title": _("Коллекции документов"),
                         "icon": "collections",
                         "link": reverse_lazy("admin:document_pages_documentcollection_changelist"),
+                    },
+                    {
+                        "title": _("Документы"),
+                        "icon": "description",
+                        "link": reverse_lazy("admin:document_pages_documentcollectionitem_changelist"),
                     },
                 ],
             },

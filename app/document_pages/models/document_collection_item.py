@@ -6,7 +6,9 @@ class DocumentCollectionItem(models.Model):
     document = models.FileField(upload_to='document_pages/files/%Y/%m/', verbose_name='Файл')
     document_collection = models.ForeignKey('DocumentCollection',
                                             on_delete=models.CASCADE,
-                                            related_name='document_collection_items')
+                                            related_name='document_collection_items',
+                                            blank=True,
+                                            null=True)
 
     class Meta:
         verbose_name = 'Документ'
