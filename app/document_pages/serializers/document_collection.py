@@ -6,7 +6,8 @@ from .document_collection_item import DocumentCollectionItemSerializer
 
 class DocumentCollectionSerializer(serializers.ModelSerializer):
     document_collection_items = DocumentCollectionItemSerializer(many=True, read_only=True)
+    documents = DocumentCollectionItemSerializer(many=True, read_only=True)
 
     class Meta:
         model = DocumentCollection
-        fields = ('name', 'document_collection_items')
+        fields = ('name', 'document_collection_items', 'documents')
