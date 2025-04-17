@@ -7,9 +7,9 @@ from modeltranslation.admin import TabbedTranslationAdmin, TranslationStackedInl
 from ..models import DocumentCollection, DocumentCollectionItem
 
 
-class DocumentCollectionItemInline(StackedInline, TranslationStackedInline):
-    model = DocumentCollectionItem
-    extra = 1
+# class DocumentCollectionItemInline(StackedInline, TranslationStackedInline):
+#     model = DocumentCollectionItem
+#     extra = 1
 
 
 @admin.register(DocumentCollection)
@@ -17,4 +17,4 @@ class DocumentCollectionAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
     list_display = ('name',)
     search_fields = ('name',)
     autocomplete_fields = ('documents',)
-    inlines = (DocumentCollectionItemInline,)
+    # inlines = (DocumentCollectionItemInline,)
