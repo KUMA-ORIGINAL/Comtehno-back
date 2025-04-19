@@ -9,7 +9,7 @@ from unfold.contrib.forms.widgets import WysiwygWidget
 from unfold.decorators import display
 
 
-from .models import Category, StudentReview
+from .models import Category, StudentReview, QuestionAnswer
 
 @admin.register(Category)
 class CategoryAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
@@ -22,6 +22,20 @@ class CategoryAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
     
     list_display = ('id', 'name') 
     search_fields = ('name',)
+
+@admin.register(QuestionAnswer)
+class QuestionAnswerAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
+    
+    formfield_overrides = {
+        models.TextField: {
+            "widget": WysiwygWidget,
+        }
+    }
+    
+    list_display = ('id', 'question', 'answer') 
+    search_fields = ('question',)
+    ordering = ('question',)
+
     
 @admin.register(StudentReview)
 class StudentReviewAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
@@ -36,6 +50,7 @@ class StudentReviewAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
     search_fields = ('student_full_name',)
     ordering = ('student_category', 'student_course') # Поля для сортировки
 
+    
 # # #
 # @admin.register(Category)
 # class CategoryAdmin(UnfoldModelAdmin):
