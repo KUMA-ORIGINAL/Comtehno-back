@@ -80,6 +80,7 @@ INSTALLED_APPS = [
     'staff',
     'reviews',
     'faq',
+    'schedule',
 ]
 
 MIDDLEWARE = [
