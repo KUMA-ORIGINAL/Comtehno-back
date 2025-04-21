@@ -26,6 +26,7 @@ class PostAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
     prepopulated_fields = {'slug': ('title',)}
     readonly_fields = ('updated_at', 'display_photo')
     date_hierarchy = 'created_at'
+    list_per_page = 50
 
     @display(description=_("Фото"))
     def display_photo(self, obj):
