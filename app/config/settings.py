@@ -85,6 +85,7 @@ INSTALLED_APPS = [
     'applicants',
     'partners',
     'parliaments',
+    'applications',
 ]
 
 MIDDLEWARE = [
@@ -512,6 +513,18 @@ UNFOLD = {
                         "title": _("Члены парламента"),
                         "icon": "directions_run",
                         "link": reverse_lazy("admin:parliaments_parliamentmember_changelist"),
+                    },
+                ],
+            },
+            {
+                "title": _("Заявки на обучение"),
+                "collapsible": True,
+                "separator": True,
+                "items": [
+                    {
+                        "title": _("Заявки"),
+                        "icon": "assignment",
+                        "link": reverse_lazy("admin:applications_trainingapplication_changelist"),
                     },
                 ],
             },

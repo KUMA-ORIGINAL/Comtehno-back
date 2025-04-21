@@ -38,6 +38,7 @@ urlpatterns = [
     path('api/', include('applicants.urls')),
     path('api/', include('partners.urls')),
     path('api/', include('parliaments.urls')),
+    path('api/', include('applications.urls')),
 ]
 
 if settings.DEBUG:
