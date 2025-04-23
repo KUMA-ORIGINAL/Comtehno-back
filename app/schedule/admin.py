@@ -12,13 +12,13 @@ from .models import Group, Teacher, Subject, Schedule, Classroom
 
 
 @admin.register(Teacher)
-class TeacherAdmin(UnfoldModelAdmin):
+class TeacherAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
     list_display = ('full_name',)
     search_fields = ('full_name',)
 
 
 @admin.register(Group)
-class GroupAdmin(UnfoldModelAdmin):
+class GroupAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
     list_display = ('name', 'course_year', 'curator')
     list_filter = ('course_year',)
     search_fields = ('name',)
@@ -42,7 +42,7 @@ class ClassroomAdmin(UnfoldModelAdmin):
 
 
 @admin.register(Schedule)
-class ScheduleAdmin(UnfoldModelAdmin):
+class ScheduleAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
     list_display = (
         'group', 'weekday', 'lesson_number', 'subject', 'teacher',
         'classroom', 'week_type'
