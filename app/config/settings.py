@@ -441,6 +441,26 @@ UNFOLD = {
                     }
                 ],
             },
+            {
+                "title": _("Расписание"),
+                "items": [
+                    {
+                        "title": _("Расписание"),
+                        "icon": "schedule",
+                        "link": reverse_lazy("admin:schedule_schedule_changelist"),
+                    },
+                    {
+                        "title": _("Группы"),
+                        "icon": "group",
+                        "link": reverse_lazy("admin:schedule_group_changelist"),
+                    },
+                    {
+                        "title": _("Преподаватели"),
+                        "icon": "self_improvement",
+                        "link": reverse_lazy("admin:schedule_teacher_changelist"),
+                    },
+                ],
+            },
         ],
     },
 }
