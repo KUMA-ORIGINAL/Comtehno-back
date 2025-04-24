@@ -9,5 +9,9 @@ class TrainingApplication(models.Model):
     created_at = models.DateTimeField("Дата подачи", auto_now_add=True)
     is_processed = models.BooleanField("Обработана", default=False)
 
+    class Meta:
+        verbose_name = "Заявка на обучение"
+        verbose_name_plural = "Заявки на обучение"
+
     def __str__(self):
         return f"{self.full_name}"
