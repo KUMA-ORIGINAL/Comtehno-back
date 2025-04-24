@@ -17,6 +17,8 @@ services:
     depends_on:
       database:
         condition: service_healthy
+      redis:
+        condition: service_healthy
 
   database:
     image: postgres:16.2-alpine3.18
@@ -35,6 +37,20 @@ services:
         limits:
           cpus: '1'
           memory: 1G
+
+  redis:
+    image: redis
+    container_name: intuit-redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: [ "CMD-SHELL", "redis-cli ping | grep PONG" ]
+      interval: 1s
+      timeout: 3s
+      retries: 5
 
   nginx:
     build: nginx
@@ -67,6 +83,7 @@ services:
 
 volumes:
   database-storage:
+  redis-data:
   static_volume:
   media_volume:
   certs:

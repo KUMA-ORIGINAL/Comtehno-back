@@ -74,6 +74,7 @@ INSTALLED_APPS = [
     'djoser',
     'corsheaders',
     'ckeditor',
+    'cachalot',
 
     'specialties',
     'news',
@@ -210,6 +211,19 @@ EMAIL_PORT = 587
 
 TELEGRAM_BOT_TOKEN = env('TELEGRAM_BOT_TOKEN')
 TELEGRAM_CHAT_ID = env('TELEGRAM_CHAT_ID')
+
+CACHALOT_ENABLED = True  # включить/отключить глобально
+CACHALOT_TIMEOUT = None
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://redis:6379/1',
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        }
+    }
+}
 
 SPECTACULAR_SETTINGS = {
     'TITLE': 'Comtehno Backend',
