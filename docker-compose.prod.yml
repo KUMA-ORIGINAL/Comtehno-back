@@ -40,7 +40,7 @@ services:
 
   redis:
     image: redis
-    container_name: intuit-redis
+    container_name: comtehno-redis
     restart: always
     ports:
       - "6379:6379"

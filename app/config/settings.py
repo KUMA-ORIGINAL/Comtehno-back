@@ -213,12 +213,12 @@ TELEGRAM_BOT_TOKEN = env('TELEGRAM_BOT_TOKEN')
 TELEGRAM_CHAT_ID = env('TELEGRAM_CHAT_ID')
 
 CACHALOT_ENABLED = True  # включить/отключить глобально
-CACHALOT_TIMEOUT = None
+CACHALOT_TIMEOUT = 7200
 
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': 'redis://redis:6379/1',
+        'LOCATION': 'redis://comtehno-redis:6379/1',
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
         }
