@@ -11,3 +11,4 @@ from ..models import DocumentCollectionItem
 class DocumentCollectionItemAdmin(UnfoldModelAdmin, TabbedTranslationAdmin):
     list_display = ('name',)
     search_fields = ('name',)
+    ordering = ['id']
