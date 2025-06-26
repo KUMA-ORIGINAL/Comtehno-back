@@ -212,6 +212,7 @@ EMAIL_PORT = 587
 TELEGRAM_BOT_TOKEN = env('TELEGRAM_BOT_TOKEN')
 TELEGRAM_CHAT_ID = env('TELEGRAM_CHAT_ID')
 
+
 CACHALOT_ENABLED = True  # включить/отключить глобально
 CACHALOT_TIMEOUT = 7200
 
@@ -272,6 +273,41 @@ DJOSER = {
     #     'user': 'account.serializers.UserSerializer',
     #     'current_user': 'account.serializers.UserSerializer',
     # },
+}
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    "formatters": {
+        "verbose": {
+            "format": "%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s",
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'INFO',  # Можно изменить на 'DEBUG' для более подробного вывода
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
+        'file': {
+            'level': 'INFO',  # Логи с уровнем DEBUG и выше будут записываться в файл
+            'class': 'logging.FileHandler',
+            'filename': 'django_app.log',
+            'formatter': 'verbose',
+        },
+    },
+    'loggers': {
+        # 'django.db.backends': {
+        #     'level': 'DEBUG',
+        #     'handlers': ['console'],
+        # },
+        'root': {
+            'handlers': ['console', 'file'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+    },
 }
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
