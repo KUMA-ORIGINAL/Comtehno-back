@@ -600,6 +600,18 @@ UNFOLD = {
                     },
                 ],
             },
+            {
+                "title": _("Tanda"),
+                "collapsible": True,
+                "separator": True,
+                "items": [
+                    {
+                        "title": _("Навыки"),
+                        "icon": "skateboarding",
+                        "link": reverse_lazy("admin:tanda_skill_changelist"),
+                    },
+                ],
+            }
         ],
     },
 }
