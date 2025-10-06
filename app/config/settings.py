@@ -582,29 +582,22 @@ UNFOLD = {
                     },
                 ],
             },
+
             {
-                "title": _("Пользователи & Группы"),
+                "title": _("Tanda, опрос"),
                 "collapsible": True,
                 "separator": True,
                 "items": [
                     {
-                        "title": _("Пользователи"),
-                        "icon": "person",
-                        "link": reverse_lazy("admin:auth_user_changelist"),
+                        "title": _("Вопросы"),
+                        "icon": "help",
+                        "link": reverse_lazy("admin:tanda_question_changelist"),
                     },
                     {
-                        "title": _("Группы"),
-                        "icon": "group",
-                        "link": reverse_lazy("admin:auth_group_changelist"),
-                        # "permission": "account.utils.permission_callback",
+                        "title": _("Ответы"),
+                        "icon": "check_box",
+                        "link": reverse_lazy("admin:tanda_option_changelist"),
                     },
-                ],
-            },
-            {
-                "title": _("Tanda"),
-                "collapsible": True,
-                "separator": True,
-                "items": [
                     {
                         "title": _("Навыки"),
                         "icon": "skateboarding",
